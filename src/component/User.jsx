@@ -41,7 +41,7 @@ function User() {
 
       {/* Input field for the number of consumers */}
       <input
-        className="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring focus:border-blue-500"
+        className="border border-gray-300 p-2 text-gray-500 rounded-md focus:outline-none focus:ring focus:border-blue-500"
         type='number'
         value={users}
         onChange={(e) => handleChange(e)}
@@ -55,11 +55,13 @@ function User() {
       {
         userRed.map((entry, i) => (
           <input
+
             key={i}
-            className="px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500  placeholder-gray-500 bg-white hover:shadow-md transition duration-300 name-input"
+            className="px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500 text-gray-500  placeholder-gray-500 bg-white hover:shadow-md transition duration-300 name-input"
             type="text"
             onChange={(e) => changeHandler(e, i)}
             placeholder={`Input name ${i + 1}`}
+
           />
         ))
       }

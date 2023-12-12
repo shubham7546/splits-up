@@ -50,7 +50,7 @@ function Days() {
 
           {/* Input field for the number of days */}
           <input
-            className='text-center border border-gray-300 p-2 rounded-md focus:outline-none focus:ring focus:border-blue-500'
+            className='text-center border text-gray-500 border-gray-300 p-2 rounded-md focus:outline-none focus:ring focus:border-blue-500'
             type='number'
             value={days}
             onChange={(e) => handleChange(e)}
@@ -65,7 +65,7 @@ function Days() {
           {
             dayRed.map((entry, i) => (
               <input
-                className='px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:border-blue-500 placeholder-gray-500 bg-white hover:shadow-md transition duration-300 mb-2 mr-2'
+                className='px-4 py-2 rounded-md border border-gray-300  text-gray-500 focus:outline-none focus:ring focus:border-blue-500 placeholder-gray-500 bg-white hover:shadow-md transition duration-300 mb-2 mr-2'
                 key={i}
                 type="number"
                 onChange={(e) => changeHandler(e, i)}

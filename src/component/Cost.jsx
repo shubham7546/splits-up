@@ -34,6 +34,7 @@ function Cost() {
         {/* Input field to enter the cost of each unit */}
         <p>enter the cost of each unit:</p>
         <input
+          className='text-gray-500'
           type='number'
           value={rate}
           onChange={(e) => setRate(e.target.value)}
@@ -54,7 +55,7 @@ function Cost() {
             <tbody>
               {
                 userRed.map((user, index) => (
-                  <tr key={index} className={` ${index % 2 === 0 ? 'bg-gray-200' : 'bg-gray-400'} `}>
+                  <tr key={index} className={` ${index % 2 === 0 ? 'bg-gray-200 text-cyan-600' : 'bg-gray-400 text-cyan-50'} `}>
                     <td className="py-2 px-4 ">{user}</td>
                     <td className="py-2 px-4 ">{costRed[user].toFixed(2)}</td>
                   </tr>

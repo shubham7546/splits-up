@@ -7,7 +7,7 @@ import ProblemStatement from "./component/ProblemStatement";
 
 
 function App() {
-  return <div className="text-yellow-300 bg-gradient-to-b from-gray-800 to-black flex flex-col justify-center">
+  return <div className="text-white bg-gradient-to-b from-gray-800 to-black flex flex-col justify-center font-serif">
 
     <Routes>
       <Route path="/" element={<Days></Days>}></Route>

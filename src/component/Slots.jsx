@@ -124,7 +124,7 @@ function Slots() {
 
     }
 
-    return <div className='mb-4'>
+    return <div className='mb-4 border-b-2 border-yellow-100'>
 
       <p className='text-2xl text-animation'>{name}</p>
 
@@ -146,7 +146,7 @@ function Slots() {
 
             {/* ye from wala  */}
             <input
-              className="px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500  placeholder-gray-500 bg-white hover:shadow-md transition duration-300 name-input"
+              className="px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500 text-gray-500 placeholder-gray-500 bg-white hover:shadow-md transition duration-300 name-input"
               type="number"
               index={i}
               value={from[name]?.length > 0 ? from[name][i] : ""}
@@ -160,7 +160,7 @@ function Slots() {
 
             {/* ye to wala */}
             <input
-              className="px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500  placeholder-gray-500 bg-white hover:shadow-md transition duration-300 name-input"
+              className="px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500 text-gray-500 placeholder-gray-500 bg-white hover:shadow-md transition duration-300 name-input"
               type="number"
               index={i}
               value={to[name]?.length > 0 ? to[name][i] : ""}
