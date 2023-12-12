@@ -2,7 +2,7 @@ import React from 'react';
 
 const AppGuide = () => {
     return (
-        <div className="min-h-screen pt-6 text-blue-300 bg-gradient-to-b from-gray-800 to-black absolute top-0">
+        <div className="min-h-screen pt-6 bg-gradient-to-b from-gray-800 to-black absolute top-0">
             <h2 className="text-2xl font-bold mb-4">Welcome to the Shared Resource Management Application!</h2>
             <p>
                 This application helps you manage shared resources and expenses among a group of users. Whether you're tracking water bottles, groceries, or any other shared items, this guide will walk you through the process.
