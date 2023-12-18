@@ -8,6 +8,7 @@ import { FaArrowCircleLeft } from "react-icons/fa";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 
+
 function Slots() {
 
 
@@ -39,6 +40,8 @@ function Slots() {
 
 
   }
+
+
 
   // const [updated,setUpdated]=useState(false);
 
@@ -171,9 +174,13 @@ function Slots() {
     return <div key={index} className={`border-2 h-full font-bold  w-[350px] sm:w-[450px]  ${curr === index ? "flex" : "hidden"} flex-col items-center justify-end `}>
 
       {/* 1 */}
-      <p className={`text-2xl w-full text-center h-[8%]`}>{name}</p>
+
+      <select className='h-10 w-[200px] text-center bg-inherit mt-2 ml-2 outline-none  ' onChange={(e) => changeCard(e)} value={`${userRed[curr]}`}>
+
+        {userRed.map((name, i) => <option value={name} className="bg-black " key={i}>{name}</option>)}
+      </select>
       {/* 2 */}
-      <div className='rounded-xl mb-5 place-items-center text-center overflow-y-auto h-full w-full bg-pink-700 '>
+      <div className='rounded-xl mb-5 pt-2 place-items-center text-center overflow-y-auto h-full w-full bg-slate-400 '>
 
         {/*jitne bhi slots h hr bnde uske liye utne fields genernate krwa liya from or to wala */}
         {slotRed[name]?.map((entry, i) => {
@@ -230,6 +237,11 @@ function Slots() {
 
   }
 
+  function changeCard(e) {
+    const curr_name = e.target.value;
+    setCurr(userRed.indexOf(curr_name));
+  }
+
 
 
   return (
@@ -241,21 +253,29 @@ function Slots() {
 
       {/* 1 */}
 
-      <div className=' flex flex-row h-[93%] justify-center'>
+
+
+      <div className=' flex flex-row h-[93%] justify-center items-center'>
+
+
+
 
         {/* 1.1 */}
-        <button className='w-[fit] bg-transparent text-4xl flex flex-row justify-end mr-3  items-center' onClick={() => switchDiv('left')}><FaArrowCircleLeft /></button>
-        {/* 1.2 */}
+        <button className='w-fit  h-fit bg-transparent text-4xl flex flex-row justify-end mr-3  items-center' onClick={() => switchDiv('left')}><FaArrowCircleLeft /></button>
 
 
+
+        {/* 1.3 */}
         {
           userRed.map((name, i) => slotsMaker(name, i))
         }
 
 
-        {/* 1.3 */}
-        <button className="w-[fit] bg-transparent text-4xl flex flex-row justify-end ml-3  items-center" onClick={() => switchDiv('right')}><FaArrowAltCircleRight /></button>
+        {/* 1.4*/}
+        <button className="w-fit  h-fit  bg-transparent text-4xl flex flex-row justify-end ml-3  items-center" onClick={() => switchDiv('right')}><FaArrowAltCircleRight /></button>
       </div>
+
+
 
 
       {/* 2 */}
@@ -271,13 +291,11 @@ function Slots() {
 
 
 
-    </div>
+    </div >
 
 
 
 
   )
-
 }
-
 export default Slots
