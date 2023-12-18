@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProblemStatement = () => {
     return (
-        <div className="min-h-screen pt-6 text-white-300 bg-gradient-to-b from-gray-800 to-black absolute top-0">
+        <div className="min-h-screen pt-6 text-white-300 bg-gradient-to-b from-gray-800 to-black  ">
             <h2 className="text-4xl font-bold mb-6">Problem Statement: Group Living Expense Management</h2>
             <p className="mb-4">
                 Suppose you live with your friends in a group having a total of "n" people. Now you receive a certain number of commodities, which depends on the people present on that day, on each day for "m" number of days. In those "m" days, the group members may not necessarily stay for all of those days and can come and go as they wish. When the bill arrives after "m" days, group members need to pay the bill based on how much he/she has actually used the commodity in those days. You are provided with the attendance of each member in those "m" days, and the bill lists the number of commodities ordered on each day.

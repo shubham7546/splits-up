@@ -4,8 +4,9 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addSlots, removeSlots, setState_template } from '../redux/slices/slotsSlice';
 import { setAttState, updateAtt } from '../redux/slices/attendanceSlice';
-// import { NavLink } from 'react-router-dom';
-import { updateCompo } from '../redux/slices/componentController';
+import { FaArrowCircleLeft } from "react-icons/fa";
+import { FaArrowAltCircleRight } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 function Slots() {
 
@@ -13,8 +14,32 @@ function Slots() {
   const userRed = useSelector((state) => state.userRed);
   const slotRed = useSelector((state) => state.slotRed);
   const dayRed = useSelector((state) => state.dayRed);
+  const [curr, setCurr] = useState(0);
 
-  // const componentRed=useSelector((state)=>state.componentRed);
+  const totalDivs = userRed.length;
+  function switchDiv(direction) {
+    if (direction === "left") {
+      setCurr(prev => {
+        prev = prev - 1;
+        if (prev < 0) {
+          return totalDivs + prev;
+        }
+        else {
+          return prev;
+        }
+      })
+    }
+
+    else {
+      setCurr(prev => {
+        return (prev + 1) % totalDivs;
+
+      })
+    }
+
+
+  }
+
   // const [updated,setUpdated]=useState(false);
 
 
@@ -57,7 +82,7 @@ function Slots() {
     dispatch(setState_template(slot_state));
   }, [])
 
-
+  const navigate = useNavigate();
   function makeAtt() {
     userRed.map((user) => {
 
@@ -65,10 +90,29 @@ function Slots() {
       const t = to[user];
 
       dispatch(updateAtt({ f, t, user }));
-      dispatch(updateCompo({ compo: "cost", boolian: true }));
+      // dispatch(updateCompo({ compo: "cost", boolian: true }));
+      navigate('/cost')
 
     })
 
+  }
+
+  function prefix(number) {
+    if (number === 1) {
+      return "st";
+    }
+
+    else if (number === 2) {
+      return "nd";
+    }
+
+    else if (number === 3) {
+      return "rd";
+    }
+
+    else {
+      return "th";
+    }
   }
 
   // yhi h svse bda game
@@ -124,29 +168,20 @@ function Slots() {
 
     }
 
-    return <div className='mb-4 border-b-2 border-yellow-100'>
+    return <div key={index} className={`border-2 h-full font-bold  w-[350px] sm:w-[450px]  ${curr === index ? "flex" : "hidden"} flex-col items-center justify-end `}>
 
-      <p className='text-2xl text-animation'>{name}</p>
-
-      <div >
-        <div className='space-x-5 text-start'>
-          <button className="px-1 py-1 rounded-md hover:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-300" onClick={() => dispatch(addSlots(name))}>
-            add slot
-          </button>
-
-          {slotRed[name]?.length > 0 && <button className="px-1 py-1 rounded-md hover:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-300" onClick={() => dispatch(removeSlots(name))}>
-            remove slot
-          </button>}
-
-        </div>
+      {/* 1 */}
+      <p className={`text-2xl w-full text-center h-[8%]`}>{name}</p>
+      {/* 2 */}
+      <div className='rounded-xl mb-5 place-items-center text-center overflow-y-auto h-full w-full bg-pink-700 '>
 
         {/*jitne bhi slots h hr bnde uske liye utne fields genernate krwa liya from or to wala */}
         {slotRed[name]?.map((entry, i) => {
-          return <div className='mb-3' key={index}>
+          return <div className='h-auto flex flex-col md:flex-row justify-center items-center mb-5' key={index}>
 
             {/* ye from wala  */}
             <input
-              className="px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500 text-gray-500 placeholder-gray-500 bg-white hover:shadow-md transition duration-300 name-input"
+              className="h-10 mb-1 md:mr-1 sm:mb-0 text-center border rounded-md focus:outline-none focus:ring focus:border-blue-500 text-gray-500 placeholder-gray-500 bg-white hover:shadow-md transition duration-300 name-input"
               type="number"
               index={i}
               value={from[name]?.length > 0 ? from[name][i] : ""}
@@ -155,22 +190,39 @@ function Slots() {
                 changeFrom(e, i);
 
               }}
-              placeholder='from'
+              placeholder={`from (on ${i + 1 + prefix(i + 1)} stay)`}
             />
 
             {/* ye to wala */}
             <input
-              className="px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500 text-gray-500 placeholder-gray-500 bg-white hover:shadow-md transition duration-300 name-input"
+              className="h-10 text-center border rounded-md focus:outline-none focus:ring focus:border-blue-500 text-gray-500 placeholder-gray-500 bg-white hover:shadow-md transition duration-300 name-input"
               type="number"
               index={i}
               value={to[name]?.length > 0 ? to[name][i] : ""}
               onChange={(e) => changeTo(e, i)}
-              placeholder='to'
+              placeholder={`to (on ${i + 1 + prefix(i + 1)} stay)`}
             />
           </div>
         }
 
         )}
+
+      </div>
+
+
+      {/* 3 */}
+      <div className='flex flex-row justify-around h-[8%] w-full  my-2'>
+        <button className=" w-[120px] rounded-md bg-gray-500 hover:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-300" onClick={() => dispatch(addSlots(name))}>
+          add slot
+        </button>
+
+        {
+          <span className={`select-none w-[120px] rounded-md bg-gray-500 hover:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-300 flex flex-row justify-center items-center  ${slotRed[name]?.length > 0 ? "cursor-auto  bg-gray-500" : "cursor-not-allowed bg-gray-300"}`}>
+            <button className={` ${slotRed[name]?.length > 0 ? "pointer-events-auto " : "pointer-events-none"} `} onClick={() => dispatch(removeSlots(name))}>
+              remove slot
+            </button>
+          </span>
+        }
 
       </div>
 
@@ -183,18 +235,47 @@ function Slots() {
   return (
 
 
-    <div className='h-screen inline-block text-center w-full '>
 
-      <div className='h-screen text-2xl text-animation'>
+    <div className='h-full pt-20 flex flex-col justify-start '>
+
+
+      {/* 1 */}
+
+      <div className=' flex flex-row h-[93%] justify-center'>
+
+        {/* 1.1 */}
+        <button className='w-[fit] bg-transparent text-4xl flex flex-row justify-end mr-3  items-center' onClick={() => switchDiv('left')}><FaArrowCircleLeft /></button>
+        {/* 1.2 */}
+
+
         {
           userRed.map((name, i) => slotsMaker(name, i))
         }
 
-        <button className='text-2xl text-animation' onClick={() => makeAtt()} >
+
+        {/* 1.3 */}
+        <button className="w-[fit] bg-transparent text-4xl flex flex-row justify-end ml-3  items-center" onClick={() => switchDiv('right')}><FaArrowAltCircleRight /></button>
+      </div>
+
+
+      {/* 2 */}
+
+      <div className='w-full text-center h-[8%]   pt-2'>
+        <button className={`h-[80%]  w-[50px] bg-blue-500  rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300`} onClick={() => makeAtt()} >
           done
         </button>
+
       </div>
+
+
+
+
+
     </div>
+
+
+
+
   )
 
 }

@@ -2,7 +2,7 @@ import React from 'react';
 
 const AppGuide = () => {
     return (
-        <div className="min-h-screen pt-6 bg-gradient-to-b from-gray-800 to-black absolute top-0">
+        <div className="min-h-screen  bg-gradient-to-b from-gray-800 to-black pt-24">
             <h2 className="text-2xl font-bold mb-4">Welcome to the Shared Resource Management Application!</h2>
             <p>
                 This application helps you manage shared resources and expenses among a group of users. Whether you're tracking water bottles, groceries, or any other shared items, this guide will walk you through the process.
@@ -12,11 +12,11 @@ const AppGuide = () => {
 
             <ol className="list-decimal ml-6">
                 <li className="mb-2">
-                    <strong>Input Days:</strong> Go to the "Days" section and input the number of days service was delivered in a given month. For each day, input the number of units received.
+                    <strong>Input Days:</strong> Go to the "Home" section and input the number of days service was delivered. For each of those days, input the number of units received. Finally click "done" to move to next step.
                 </li>
 
                 <li className="mb-2">
-                    <strong>Input Users:</strong> Navigate to the "User" section and input the number of users along with their names. Dynamic input fields will be generated for each user, ensuring accurate mapping of individual expenses.
+                    <strong>Input Users:</strong> You will be moved to the "User" section , here input the number of users and then provide their names (Dynamic input fields will be generated for each user, ensuring accurate mapping of individual expenses)
                 </li>
 
                 <li className="mb-2">

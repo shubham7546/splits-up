@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateCost } from '../redux/slices/costSlice';
 
+
 // Define the main component, Cost
 function Cost() {
 
@@ -14,9 +15,11 @@ function Cost() {
   const costRed = useSelector((state) => state.costRed);
   const dayRed = useSelector((state) => state.dayRed);
   const [updated, setUpdated] = useState(false);
-
-  // Dispatch function to trigger actions
+  // const componentRed = useSelector((state) => state.componentRed);
   const dispatch = useDispatch();
+
+
+
 
   // State to manage the rate of each unit
   const [rate, setRate] = useState(0);
@@ -28,7 +31,7 @@ function Cost() {
   }, [rate])
 
   return (
-    <div className='flex flex-col justify-center items-center min-h-screen text-2xl text-animation'>
+    <div className='flex flex-col justify-center items-center min-h-screen text-2xl text-animation h-full pt-20'>
 
       <div>
         {/* Input field to enter the cost of each unit */}
