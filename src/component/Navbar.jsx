@@ -29,6 +29,10 @@ const Navbar = () => {
                 <h1 className='ml-2 text-5xl font-normal'>splits-up</h1>
             </div>
 
+            <div className='font-rubik-doodle-shadow text-2xl'>
+                <p className='tracking-widest'>Hassle-free spliting</p>
+            </div>
+
 
 
             <ul className='hidden md:flex'>
