@@ -6,6 +6,7 @@ import ProblemStatement from "./component/ProblemStatement";
 import Navbar from "./component/Navbar";
 import Cost from "./component/Cost";
 import Slots from "./component/Slots";
+import FadingComponent from "./component/FadingComponent";
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
 
     <Navbar />
 
-
+    <FadingComponent></FadingComponent>
 
 
     <Routes >

@@ -14,14 +14,39 @@ body {
   background-color: #fff;
 }
 
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px 0 #ff7c00;
+  }
+
+  50% {
+    box-shadow: 0 0 20px 10px #ff7c00;
+  }
+
+  100% {
+    box-shadow: 0 0 5px 0 #ff7c00;
+  }
+}
+
+.glow {
+  animation: glow 2s infinite;
+  /* Adjust the duration as needed */
+}
+
 /* Define the animation */
 @keyframes slideIn {
-  0% { transform: translateX(-100%); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 /* Apply the animation to the text */
 .text-animation {
   animation: slideIn 1s ease-in-out;
 }
-

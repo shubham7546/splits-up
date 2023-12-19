@@ -2,10 +2,10 @@ import React from 'react';
 
 const ProblemStatement = () => {
     return (
-        <div className="min-h-screen pt-6 text-white-300 bg-gradient-to-b from-gray-800 to-black  ">
+        <div className="min-h-screen pt-24 pb-10 text-white-300 bg-gradient-to-b from-gray-800 to-black  ">
             <h2 className="text-4xl font-bold mb-6">Problem Statement: Group Living Expense Management</h2>
             <p className="mb-4">
-                Suppose you live with your friends in a group having a total of "n" people. Now you receive a certain number of commodities, which depends on the people present on that day, on each day for "m" number of days. In those "m" days, the group members may not necessarily stay for all of those days and can come and go as they wish. When the bill arrives after "m" days, group members need to pay the bill based on how much he/she has actually used the commodity in those days. You are provided with the attendance of each member in those "m" days, and the bill lists the number of commodities ordered on each day.
+                Suppose you live with your friends in a group having a total of "N" people. Now you order a certain "UNIT" of commodities on each day for "m" number of days. The "UNITS" ordered on any day depend on the people present on that day. The group member may not necessarily stay for all of those "M" days and can stay and leave as he/she wish. When the bill arrives after "M" days, group members need to pay their share of bill based on how much he/she has actually used the commodity in those days as they will not be paying for the days when they were absent. You are provided with the attendance of each member in those "M" days, and the bill lists the number of commodities ordered on each day.
             </p>
 
             <h3 className="text-2xl font-bold mb-2">Challenges:</h3>

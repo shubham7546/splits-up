@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaBars, FaTimes } from "react-icons/fa"
 import { Link } from 'react-router-dom'
 
@@ -6,6 +6,20 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
 
     const [nav, setNav] = useState(false);
+
+    const [glow, setGlow] = useState(false);
+
+    useEffect(() => {
+        // Trigger the glow effect
+        setGlow(true);
+
+        // Clear the glow effect after a certain duration
+        const timeoutId = setTimeout(() => {
+            setGlow(false);
+        }, 3000); // Adjust the duration (in milliseconds) as needed
+
+        return () => clearTimeout(timeoutId);
+    }, []); // This effect runs only once after the component is mounted
     const links = [
         {
             id: 1,
@@ -37,7 +51,7 @@ const Navbar = () => {
 
             <ul className='hidden md:flex'>
                 {links.map(({ id, link }) => <li key={id} className='px-4 font-medium text-gray-500 capitalize duration-200 cursor-pointer hover:scale-105'>
-                    <Link to={link === 'home' ? "/" : link} smooth duration={500} offset={-65}>
+                    <Link to={link === 'home' ? "/" : link} smooth duration={500} offset={-65} className={`${id === 3 ? `transition-all duration-500 ${glow ? 'glow' : ''}` : ``}`}>
                         {link}
                     </Link>
                 </li>)}
