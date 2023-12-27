@@ -31,7 +31,7 @@ function Cost() {
   }, [rate])
 
   return (
-    <div className='flex flex-col justify-center items-center min-h-screen text-2xl text-animation h-full pt-20'>
+    <div className='flex flex-col justify-center items-center min-h-screen text-2xl text-animation h-full pt-20 pb-3'>
 
       <div>
         {/* Input field to enter the cost of each unit */}
@@ -45,16 +45,18 @@ function Cost() {
         />
       </div>
 
-      <div>
+      <div className='overflow-y-auto my-4'>
         {/* Display the cost table if updated */}
         {
-          updated && <table className="w-full border-collapse border border-gray-300 my-4">
+          updated && <table className="w-full border-collapse border border-gray-300 ">
             <thead>
               <tr className="bg-blue-500  font-bold text-left">
                 <th className="py-2 px-4">Name</th>
                 <th className="py-2 px-4">Share</th>
               </tr>
             </thead>
+
+
             <tbody>
               {
                 userRed.map((user, index) => (
@@ -65,6 +67,8 @@ function Cost() {
                 ))
               }
             </tbody>
+
+
           </table>
         }
       </div>

@@ -40,7 +40,11 @@ const Navbar = () => {
         <div className=' w-full fixed bg-black h-20 text-white flex justify-between items-center px-4'>
 
             <div>
-                <h1 className='ml-2 text-5xl font-normal'>splits-up</h1>
+
+
+                <Link to="/" smooth duration={500} >
+                    <h1 className='ml-2 md:text-5xl sm:text-3xl font-normal'>splits-up</h1>
+                </Link>
             </div>
 
             <div className='font-rubik-doodle-shadow sm:text-2xl'>

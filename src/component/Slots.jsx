@@ -248,50 +248,52 @@ function Slots() {
 
 
 
-    <div className='h-full pt-20 flex flex-col justify-start '>
+    <div className='h-[90%] sm:h-full'>
+      <div className='h-full pt-20 flex flex-col justify-start '>
 
 
-      {/* 1 */}
-
-
-
-      <div className=' flex flex-row h-[93%] justify-center items-center'>
+        {/* 1 */}
 
 
 
-
-        {/* 1.1 */}
-        <button className='w-fit  h-fit bg-transparent text-4xl flex flex-row justify-end mr-3  items-center' onClick={() => switchDiv('left')}><FaArrowCircleLeft /></button>
+        <div className=' flex flex-row h-[93%] justify-center items-center'>
 
 
 
-        {/* 1.3 */}
-        {
-          userRed.map((name, i) => slotsMaker(name, i))
-        }
+
+          {/* 1.1 */}
+          <button className='w-fit  h-fit bg-transparent text-4xl flex flex-row justify-end mr-3  items-center' onClick={() => switchDiv('left')}><FaArrowCircleLeft /></button>
 
 
-        {/* 1.4*/}
-        <button className="w-fit  h-fit  bg-transparent text-4xl flex flex-row justify-end ml-3  items-center" onClick={() => switchDiv('right')}><FaArrowAltCircleRight /></button>
+
+          {/* 1.3 */}
+          {
+            userRed.map((name, i) => slotsMaker(name, i))
+          }
+
+
+          {/* 1.4*/}
+          <button className="w-fit  h-fit  bg-transparent text-4xl flex flex-row justify-end ml-3  items-center" onClick={() => switchDiv('right')}><FaArrowAltCircleRight /></button>
+        </div>
+
+
+
+
+        {/* 2 */}
+
+        <div className='w-full text-center h-[8%]   pt-2'>
+          <button className={`h-[80%]  w-[50px] bg-blue-500  rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300`} onClick={() => makeAtt()} >
+            done
+          </button>
+
+        </div>
+
+
+
+
+
       </div>
-
-
-
-
-      {/* 2 */}
-
-      <div className='w-full text-center h-[8%]   pt-2'>
-        <button className={`h-[80%]  w-[50px] bg-blue-500  rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300`} onClick={() => makeAtt()} >
-          done
-        </button>
-
-      </div>
-
-
-
-
-
-    </div >
+    </div>
 
 
 
